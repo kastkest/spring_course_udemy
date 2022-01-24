@@ -27,17 +27,18 @@ public class Person {
         return age;
     }
 
-    @Autowired
-    public Person(Pet pet) {
-        System.out.println("Person bean is created");
-        this.pet = pet;
-    }
-
-
-//    public Person() {
+//    @Autowired
+//    public Person(Pet pet) {
 //        System.out.println("Person bean is created");
+//        this.pet = pet;
 //    }
+
+
+        public Person() {
+        System.out.println("Person bean is created");
+    }
     // pet -> setPet
+    @Autowired
     public void setPet(Pet pet) {
         System.out.println("Class Person: set pet");
         this.pet = pet;
