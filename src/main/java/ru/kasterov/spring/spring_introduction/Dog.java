@@ -1,8 +1,13 @@
 package ru.kasterov.spring.spring_introduction;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 @Component("dogBean")
+@Scope("singleton")
 public class Dog implements Pet {
     private String name;
 
@@ -23,10 +28,12 @@ public class Dog implements Pet {
         System.out.println("Bow-Wow");
     }
 
-    protected void init(){
+    @PostConstruct
+    protected void init() {
         System.out.println("Class Dog: init method");
     }
 
+    @PreDestroy
     private void destroy() {
         System.out.println("Class Dog: destroy method");
     }
