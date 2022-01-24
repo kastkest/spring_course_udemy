@@ -1,11 +1,9 @@
 package ru.kasterov.spring.spring_introduction;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.*;
 
 @Configuration
+@PropertySource("classpath:myApp.properties")
 public class MyConfig {
 
     @Bean
