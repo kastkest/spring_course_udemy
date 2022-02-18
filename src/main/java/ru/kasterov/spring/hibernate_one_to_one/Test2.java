@@ -1,10 +1,10 @@
-package ru.kasterov.spring.hibernate_test2;
+package ru.kasterov.spring.hibernate_one_to_one;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import ru.kasterov.spring.hibernate_test2.entity.Detail;
-import ru.kasterov.spring.hibernate_test2.entity.Employee;
+import ru.kasterov.spring.hibernate_one_to_one.entity.Detail;
+import ru.kasterov.spring.hibernate_one_to_one.entity.Employee;
 
 
 public class Test2 {

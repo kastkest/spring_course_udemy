@@ -1,10 +1,10 @@
-package ru.kasterov.spring.hibernate_test2;
+package ru.kasterov.spring.hibernate_one_to_many_bi;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import ru.kasterov.spring.hibernate_test2.entity.Detail;
-import ru.kasterov.spring.hibernate_test2.entity.Employee;
+import ru.kasterov.spring.hibernate_one_to_many_bi.entity.Department;
+import ru.kasterov.spring.hibernate_one_to_many_bi.entity.Employee;
 
 
 public class Test1 {
@@ -13,18 +13,25 @@ public class Test1 {
         SessionFactory sessionFactory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Employee.class)
-                .addAnnotatedClass(Detail.class)
+                .addAnnotatedClass(Department.class)
                 .buildSessionFactory();
         Session session = null;
+
         try {
-
-
-
             session = sessionFactory.getCurrentSession();
-            session.beginTransaction();
 
-            Employee emp = session.get(Employee.class, 1);
-            System.out.println(emp.getEmpDetail());
+
+            Department dep = new Department("IT", 300, 2000);
+            Employee emp1 = new Employee("Konst", "Kasterov", 1500);
+            Employee emp2 = new Employee("Elena", "Orlova", 1000);
+
+            dep.addEmployeeToDep(emp1);
+            dep.addEmployeeToDep(emp2);
+
+
+            session.beginTransaction();
+            session.save(dep);
+
 
             session.getTransaction().commit();
             System.out.println("Done");
