@@ -15,12 +15,12 @@ public class Test1 {
                 .addAnnotatedClass(Employee.class)
                 .addAnnotatedClass(Detail.class)
                 .buildSessionFactory();
-
+        Session session = null;
         try {
 
 
 
-            Session session = sessionFactory.getCurrentSession();
+            session = sessionFactory.getCurrentSession();
             session.beginTransaction();
 
             Employee emp = session.get(Employee.class, 1);
@@ -30,6 +30,7 @@ public class Test1 {
             System.out.println("Done");
 
         } finally {
+            session.close();
             sessionFactory.close();
         }
     }
