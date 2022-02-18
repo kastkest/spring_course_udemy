@@ -22,11 +22,14 @@ public class Test2 {
             Employee emp1 = new Employee("Kolya", "Ivanov", "HR", 900);
             Detail detail1 = new Detail("NY", "886544","sfhf@sjdfsf.ru");
 
-            emp1.setEmpDetail(detail1);
-            detail1.setEmployee(emp1);
+            Detail detail = session.get(Detail.class, 2);
+            System.out.println(detail.getEmployee());
+
+//            emp1.setEmpDetail(detail1);
+//            detail1.setEmployee(emp1);
 
 
-            session.save(detail1);
+//            session.save(detail1);
 
             session.getTransaction().commit();
             System.out.println("Done");
