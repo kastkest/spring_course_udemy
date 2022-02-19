@@ -1,10 +1,10 @@
-package ru.kasterov.spring.hibernate_one_to_many_bi;
+package ru.kasterov.spring.hibernate_one_to_mani_uni;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import ru.kasterov.spring.hibernate_one_to_mani_uni.entity.Department;
-import ru.kasterov.spring.hibernate_one_to_mani_uni.entity.Employee;
+import ru.kasterov.spring.hibernate_one_to_many_bi.entity.Department;
+import ru.kasterov.spring.hibernate_one_to_many_bi.entity.Employee;
 
 
 public class Test1 {
@@ -21,9 +21,9 @@ public class Test1 {
             session = sessionFactory.getCurrentSession();
 
             session.beginTransaction();
-            Department dep = new Department("HR", 500, 1500);
-            Employee emp1 = new Employee("Oleg", "Ivanov", 1300);
-            Employee emp2 = new Employee("Olga", "Petrova", 1000);
+            Department dep = new Department("IT", 300, 2000);
+            Employee emp1 = new Employee("Konstantin", "Kasterov", 1500);
+            Employee emp2 = new Employee("Elena", "Orlova", 1000);
 
 
             dep.addEmployeeToDep(emp1);
