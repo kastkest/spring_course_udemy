@@ -20,16 +20,17 @@ public class Test1 {
         try {
             session = sessionFactory.getCurrentSession();
 
-
+            session.beginTransaction();
             Department dep = new Department("IT", 300, 2000);
-            Employee emp1 = new Employee("Konst", "Kasterov", 1500);
+            Employee emp1 = new Employee("Konstantin", "Kasterov", 1500);
             Employee emp2 = new Employee("Elena", "Orlova", 1000);
+
 
             dep.addEmployeeToDep(emp1);
             dep.addEmployeeToDep(emp2);
 
 
-            session.beginTransaction();
+
             session.save(dep);
 
 
